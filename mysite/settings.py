@@ -117,9 +117,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR.parent / 'docker_urlreduce/staticfiles/static'
+STATIC_ROOT = BASE_DIR / 'docker_urlreduce/staticfiles/static'
 MEDIA_URL = '/mediafiles/'
-MEDIA_ROOT = BASE_DIR.parent / 'docker_urlreduce/mediafiles'
+MEDIA_ROOT = BASE_DIR / 'docker_urlreduce/mediafiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
