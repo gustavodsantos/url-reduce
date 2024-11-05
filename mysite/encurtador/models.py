@@ -1,9 +1,12 @@
+
 from django.db import models
+
 from django_min_custom_user.models import MinAbstractUser
 
 
 class User(MinAbstractUser):
     pass
+
 
 
 class UrlRedirect(models.Model):
@@ -27,3 +30,4 @@ class UrlLog(models.Model):
     def __str__(self):
         iso = self.criado_em.isoformat()
         return f'{iso}: {self.origem}'
+

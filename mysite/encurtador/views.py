@@ -1,3 +1,4 @@
+
 from django.db.models import Count
 from django.db.models.functions import TruncDate
 from django.shortcuts import redirect, render
@@ -38,3 +39,4 @@ def redirecionar(requisicao, slug):
 
 def home(request):
     return render(request, 'encurtador/home.html', {})
+
