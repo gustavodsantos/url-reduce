@@ -16,13 +16,9 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
-
-from mysite.encurtador import views
+from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('<slug:slug>', views.redirecionar),
-    path('relatorios/<slug:slug>', views.relatorios),
+    path('', include('mysite.encurtador.urls')),
 ]

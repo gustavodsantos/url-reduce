@@ -23,22 +23,41 @@
             <h1 class="font-weight-bold">URL<span class="font-weight-light color-y">Reduce</span></h1>
             <p class="h5 mb-5 text-muted">Encurtador de URL</p>
 
-            <form>
-                <div class="row">
-                    <div class="col-sm-10 input-group-lg">
-                        <input type="text" id="inputContent" class="form-control" placeholder="Cole seu link aqui..."
-                               required autofocus>
+            <form method="post" action="{% url 'encurtador:criar_url' %}">
+                {% csrf_token %}
+
+                    <div class="row py-3">
+                        <div class="col-sm-10 input-group-lg">
+                            {{ form.destino }}
+                        </div>
                     </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Reduzir</button>
+
+                    <div class="row py-3">
+                        <div class="col-sm-10 input-group-lg">
+                            {{ form.slug }}
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Reduzir</button>
+                        </div>
                     </div>
-                </div>
             </form>
+
+            {% if url_reduzida %}
+                <div class="alert alert-success mt-4">
+                    Sua URL reduzida: <a href="{{ url_reduzida }}" target="_blank">{{ url_reduzida }}</a>
+                </div>
+                {% if slug %}
+                    <div class="mt-4">
+                        <a href="{% url 'encurtador:relatorios' slug=slug %} " target="_blank" class="btn btn-primary">Ver Relatório de
+                            Cliques</a>
+                    </div>
+                {% endif %}
+            {% endif %}
 
         </div>
     </div>
 
-    <p class="mt-5 mb-3 text-muted"><span class="color-y">&copy;</span> 2021 - Jornada Rumo a Primeira Vaga | URL<span
+    <p class="mt-5 mb-3 text-muted"><span class="color-y">&copy;</span> {% now 'Y' %} - Jornada Rumo a Primeira Vaga | URL<span
             class="color-y">Reduce</span></p>
 </div>
 
